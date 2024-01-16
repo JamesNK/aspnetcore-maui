@@ -5,7 +5,7 @@ namespace MauiApp;
 
 public static class MauiProgram
 {
-    public static Microsoft.Maui.Hosting.MauiApp CreateMauiApp(ColorChanger colorChanger, CallbackLoggerProvider callbackLoggerProvider)
+    public static Microsoft.Maui.Hosting.MauiApp CreateMauiApp()
     {
         var builder = Microsoft.Maui.Hosting.MauiApp.CreateBuilder();
         builder
@@ -17,11 +17,12 @@ public static class MauiProgram
             });
 
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
-        builder.Services.AddSingleton(colorChanger);
-        builder.Services.AddSingleton(callbackLoggerProvider);
+        builder.Services.AddSingleton<ColorChanger>();
+        builder.Services.AddSingleton<CallbackLoggerProvider>();
+        builder.Services.AddSingleton<WebAppHost>();
         builder.Services.AddTransient<MainPage>();
 
         return builder.Build();
