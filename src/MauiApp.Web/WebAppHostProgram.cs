@@ -14,7 +14,7 @@ namespace MauiApp.Web;
 
 public class WebAppHostProgram
 {
-    public static async Task<WebApplication> CreateWebApp(int httpPort, int httpsPort, string applicationName, X509Certificate2 certificate, ColorChanger colorChanger, CallbackLoggerProvider loggerProvider)
+    public static async Task<WebApplication> CreateWebApp(int httpPort, int httpsPort, string applicationName, X509Certificate2 certificate, MessageDispatcher messageDispatcher, CallbackLoggerProvider loggerProvider)
     {
         var builder = WebApplication.CreateBuilder(new WebApplicationOptions
         {
@@ -49,7 +49,7 @@ public class WebAppHostProgram
         builder.Logging.AddProvider(loggerProvider);
         builder.Logging.SetMinimumLevel(LogLevel.Information);
 
-        builder.Services.AddSingleton(colorChanger);
+        builder.Services.AddSingleton(messageDispatcher);
 
         var app = builder.Build();
 

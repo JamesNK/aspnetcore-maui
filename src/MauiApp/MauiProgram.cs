@@ -20,7 +20,7 @@ public static class MauiProgram
         builder.Logging.AddDebug();
 #endif
 
-        builder.Services.AddSingleton<ColorChanger>();
+        builder.Services.AddSingleton<MessageDispatcher>();
         builder.Services.AddSingleton<CallbackLoggerProvider>();
         builder.Services.AddSingleton<WebAppHost>();
         builder.Services.AddTransient<MainPage>();
