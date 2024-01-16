@@ -5,7 +5,7 @@ namespace MauiApp;
 
 public partial class MainPage : ContentPage
 {
-    public MainPage(ColorChanger colorChanger, CallbackLoggerProvider callbackLoggerProvider)
+    public MainPage(MessageDispatcher colorChanger, CallbackLoggerProvider callbackLoggerProvider)
     {
         InitializeComponent();
 

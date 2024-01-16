@@ -8,14 +8,14 @@ namespace MauiApp;
 public class WebAppHost : IAsyncDisposable
 {
     private readonly ILogger<WebAppHost> _logger;
-    private readonly ColorChanger _colorChanger;
+    private readonly MessageDispatcher _colorChanger;
     private readonly CallbackLoggerProvider _loggerProvider;
     private WebApplication? _app;
 
-    public WebAppHost(ILogger<WebAppHost> logger, ColorChanger colorChanger, CallbackLoggerProvider loggerProvider)
+    public WebAppHost(ILogger<WebAppHost> logger, MessageDispatcher messageDispatcher, CallbackLoggerProvider loggerProvider)
     {
         _logger = logger;
-        _colorChanger = colorChanger;
+        _colorChanger = messageDispatcher;
         _loggerProvider = loggerProvider;
     }
 

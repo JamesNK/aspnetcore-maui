@@ -1,17 +1,17 @@
 ﻿namespace MauiApp.Web;
 
-public class ColorChanger
+public class MessageDispatcher
 {
     private readonly object _lock = new();
     private readonly List<Action<string>> _actions = new();
 
-    public void ChangeColor(string color)
+    public void DispatchMessage(string message)
     {
         lock (_lock)
         {
             foreach (var action in _actions)
             {
-                action(color);
+                action(message);
             }
         }
     }
