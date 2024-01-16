@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.0" />
+		
+		<Reference Include="C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\8.0.0\*.dll" Exclude="C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\8.0.0\aspnetcorev2_inprocess.dll">
+			<Private>False</Private>
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Reference>
+	</ItemGroup>
+
+</Project>
