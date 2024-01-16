@@ -9,6 +9,7 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
 
+        // React to the web app receiving color change requests.
         colorChanger.Register(colorName =>
         {
             if (string.Equals(colorName, "exit", StringComparison.OrdinalIgnoreCase))
@@ -19,7 +20,7 @@ public partial class MainPage : ContentPage
                     await WriteToOutput($"Shutting down in 3 seconds...");
                     await Task.Delay(3000);
                     Application.Current?.Quit();
-                    System.Environment.Exit(0);
+                    Environment.Exit(0);
                 });
                 return;
             }
@@ -35,6 +36,7 @@ public partial class MainPage : ContentPage
             }
         });
 
+        // React to the web app writing logs.
         callbackLoggerProvider.Register(record =>
         {
             _ = Dispatcher.DispatchAsync(async () =>
@@ -52,6 +54,8 @@ public partial class MainPage : ContentPage
     private async Task WriteToOutput(string message)
     {
         ServerLogOutput.Text += $"{((ServerLogOutput.Text?.Length > 0) ? Environment.NewLine : string.Empty)}{message}";
+
+        // Text doesn't immediately render, so we need to wait a bit before scrolling.
         await Task.Delay(100);
         await CounterScrollView.ScrollToAsync(ServerLogOutput, ScrollToPosition.End, false);
     }
