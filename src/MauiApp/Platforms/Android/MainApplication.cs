@@ -20,8 +20,6 @@ public class MainApplication : MauiApplication
 
     protected override Microsoft.Maui.Hosting.MauiApp CreateMauiApp()
     {
-        var app = MauiProgram.CreateMauiApp();
-
-        return app;
+        return MauiProgram.CreateMauiApp();
     }
 }
