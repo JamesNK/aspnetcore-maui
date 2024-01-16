@@ -26,6 +26,6 @@ internal class ChatHub : Hub
 
     public override async Task OnConnectedAsync()
     {
-        await Clients.All.SendAsync("ReceiveMessage", $"Connected to {RuntimeInformation.OSDescription}.");
+        await Clients.All.SendAsync("ReceiveMessage", $"Connected to {RuntimeInformation.RuntimeIdentifier}.");
     }
 }
