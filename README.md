@@ -4,7 +4,7 @@ This is an experiment for hosting an ASP.NET Core inside a MAUI app.
 
 ## Why
 
-ASP.NET Core in MAUI is a [highly requested feature](https://github.com/dotnet/aspnetcore/issues/35077) (currently the 3rd most commented issue in [dotnet/aspnetcore]( https://github.com/dotnet/aspnetcore)). Support for hosting an HTTP server opens new opportunities for MAUI apps:
+ASP.NET Core in MAUI is a [highly requested feature](https://github.com/dotnet/aspnetcore/issues/35077) (currently the 3rd most commented issue in [dotnet/aspnetcore](https://github.com/dotnet/aspnetcore)). Support for hosting an HTTP server opens new opportunities for MAUI apps:
 
 * Share files with desktop computers on the same network over HTTP.
 * Host a web GUI control panel to remote control the mobile app (Start/stop/Record/Pause/Take photo etc)
