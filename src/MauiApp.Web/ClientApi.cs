@@ -13,21 +13,15 @@ public static class ClientApi
 
     public static void MapClientApi(this IEndpointRouteBuilder endpoints)
     {
-        endpoints.MapGet("weather", async () =>
+        endpoints.MapGet("weather", () =>
         {
-            await Task.Delay(Random.Shared.Next(1000));
-
-            if (Random.Shared.Next(5) == 0)
-            {
-                throw new InvalidOperationException("Error getting weather data.");
-            }
-
             var results = Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                 TemperatureC = Random.Shared.Next(-20, 55),
                 Summary = s_summaries[Random.Shared.Next(s_summaries.Length)]
             }).ToArray();
+
             return results;
         }).RequireAuthorization();
     }
