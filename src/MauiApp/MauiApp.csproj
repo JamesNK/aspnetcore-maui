@@ -40,11 +40,6 @@
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
 
-    <!--<KnownRuntimePack Update="@(KnownRuntimePack)">
-      <LatestRuntimeFrameworkVersion Condition="'%(RuntimeFrameworkName)' == 'Microsoft.AspNetCore.App'">9.0.0-alpha.1.24066.27</LatestRuntimeFrameworkVersion>
-      <RuntimePackRuntimeIdentifiers Condition="'%(RuntimeFrameworkName)' == 'Microsoft.AspNetCore.App'">win-x64;win-x86;osx-x64;linux-musl-x64;linux-musl-arm64;linux-x64;linux-arm;linux-arm64;linux-musl-arm;win-arm64;osx-arm64;linux-s390x;linux-loongarch64;linux-ppc64le;android-x64</RuntimePackRuntimeIdentifiers>
-      <RuntimePackExcludedRuntimeIdentifiers Condition="'%(TargetFramework)' == 'net9.0' AND '%(RuntimeFrameworkName)' == 'Microsoft.AspNetCore.App'">linux-bionic</RuntimePackExcludedRuntimeIdentifiers>
-    </KnownFrameworkReference>-->
     <KnownFrameworkReference Remove="Microsoft.AspNetCore.App" />
     <KnownFrameworkReference Include="Microsoft.AspNetCore.App"
                               TargetFramework="net9.0"
