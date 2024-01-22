@@ -1,12 +1,5 @@
-﻿using System.Diagnostics;
-using System.IO.Pipelines;
-using System.Security.Cryptography.X509Certificates;
-using Android.App;
+﻿using Android.App;
 using Android.Runtime;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using MauiApp;
-using MauiApp.Web;
 
 namespace MauiApp;
 

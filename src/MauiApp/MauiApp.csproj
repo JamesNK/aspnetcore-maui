@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0-android</TargetFrameworks>
+    <TargetFrameworks>net9.0-android</TargetFrameworks>
     <!--<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>-->
     <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
     <!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
@@ -38,8 +38,28 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!--<FrameworkReference Include="Microsoft.AspNetCore.App" />-->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
 
+    <!--<KnownRuntimePack Update="@(KnownRuntimePack)">
+      <LatestRuntimeFrameworkVersion Condition="'%(RuntimeFrameworkName)' == 'Microsoft.AspNetCore.App'">9.0.0-alpha.1.24066.27</LatestRuntimeFrameworkVersion>
+      <RuntimePackRuntimeIdentifiers Condition="'%(RuntimeFrameworkName)' == 'Microsoft.AspNetCore.App'">win-x64;win-x86;osx-x64;linux-musl-x64;linux-musl-arm64;linux-x64;linux-arm;linux-arm64;linux-musl-arm;win-arm64;osx-arm64;linux-s390x;linux-loongarch64;linux-ppc64le;android-x64</RuntimePackRuntimeIdentifiers>
+      <RuntimePackExcludedRuntimeIdentifiers Condition="'%(TargetFramework)' == 'net9.0' AND '%(RuntimeFrameworkName)' == 'Microsoft.AspNetCore.App'">linux-bionic</RuntimePackExcludedRuntimeIdentifiers>
+    </KnownFrameworkReference>-->
+    <KnownFrameworkReference Remove="Microsoft.AspNetCore.App" />
+    <KnownFrameworkReference Include="Microsoft.AspNetCore.App"
+                              TargetFramework="net9.0"
+                              RuntimeFrameworkName="Microsoft.AspNetCore.App"
+                              DefaultRuntimeFrameworkVersion="9.0.0-alpha.1.23577.26"
+                              LatestRuntimeFrameworkVersion="9.0.0-alpha.1.23577.26"
+                              TargetingPackName="Microsoft.AspNetCore.App.Ref"
+                              TargetingPackVersion="9.0.0-alpha.1.24066.27"
+                              RuntimePackNamePatterns="Microsoft.AspNetCore.App.Runtime.**RID**"
+                              RuntimePackRuntimeIdentifiers="win-x64;win-x86;osx-x64;linux-musl-x64;linux-musl-arm64;linux-x64;linux-arm;linux-arm64;linux-musl-arm;win-arm64;osx-arm64;linux-s390x;linux-loongarch64;linux-ppc64le;android-x64"
+                              RuntimePackExcludedRuntimeIdentifiers="linux-bionic"
+                              />
+  </ItemGroup>
+
+  <ItemGroup>
     <!-- App Icon -->
     <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
@@ -65,10 +85,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MauiApp.Web\MauiApp.Web.csproj" />
-    <Reference
+    <!--<Reference
       Include="C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\8.0.0\*.dll"
       Exclude="C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\8.0.0\aspnetcorev2_inprocess.dll">
-    </Reference>
+    </Reference>-->
   </ItemGroup>
 
 </Project>
