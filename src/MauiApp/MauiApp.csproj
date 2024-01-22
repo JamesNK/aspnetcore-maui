@@ -52,9 +52,7 @@
                               RuntimePackRuntimeIdentifiers="win-x64;win-x86;osx-x64;linux-musl-x64;linux-musl-arm64;linux-x64;linux-arm;linux-arm64;linux-musl-arm;win-arm64;osx-arm64;linux-s390x;linux-loongarch64;linux-ppc64le;android-x64"
                               RuntimePackExcludedRuntimeIdentifiers="linux-bionic"
                               />
-  </ItemGroup>
 
-  <ItemGroup>
     <!-- App Icon -->
     <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
