@@ -66,11 +66,11 @@ public class WebAppHostProgram
 
         app.UseAuthorization();
 
+        app.UseWelcomePage("/welcome");
+
         var api = app.MapGroup("/api");
         api.MapIdentityApi<MyUser>();
         api.MapClientApi();
-
-        //app.UseWelcomePage();
 
         app.MapGet("/", () => "Hello World!");
         app.MapControllers();
